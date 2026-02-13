@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青甘西藏自驾行程</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 加载状态 -->
+  <div id="loading" style="padding: 60px 20px; text-align: center; color: #666;">
+    <p>加载行程数据中...</p>
+  </div>
+
+  <!-- 错误信息 -->
+  <div id="error-message" style="display: none; padding: 40px; text-align: center; color: #d9534f;">
+    <h2>加载失败</h2>
+    <p></p>
+  </div>
+
+  <!-- 主内容（默认隐藏，加载成功后显示） -->
+  <div id="main-content" style="display: none;">
+
+    <!-- 顶部标题 + 统计 -->
+    <header class="site-header" id="site-header">
+      <a href="map.html" class="header-map-btn" target="_blank" title="在新窗口打开地图">🗺️ 查看地图</a>
+    </header>
+
+    <!-- 阶段导航 -->
+    <nav class="phase-nav" id="phase-nav"></nav>
+
+    <!-- 行程卡片 -->
+    <main class="main-content">
+      <div id="timeline"></div>
+
+      <!-- 开销汇总 -->
+      <section class="expense-summary" id="expense-summary"></section>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+  </div>
+
+  <!-- 脚本加载顺序很重要 -->
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

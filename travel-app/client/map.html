@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青甘西藏自驾路线图</title>
+
+    <!-- Leaflet 地图库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- 地图样式 -->
+    <link rel="stylesheet" href="css/map.css" />
+
+    <!-- 返回行程页按钮样式 -->
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回行程页按钮 -->
+    <a href="index.html" class="back-btn">← 返回行程页</a>
+
+    <!-- 地图容器 -->
+    <div id="map"></div>
+
+    <!-- 加载状态 -->
+    <div id="loading" style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    ">
+        <p style="color: #666; font-size: 15px;">加载地图数据中...</p>
+    </div>
+
+    <!-- 错误信息 -->
+    <div id="error-message" style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2000;
+        background: #fff;
+        padding: 30px 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    ">
+        <h2 style="color: #d9534f; margin-bottom: 10px;">加载失败</h2>
+        <p id="error-text" style="color: #666;"></p>
+    </div>
+
+    <!-- 脚本加载顺序：数据 → 地图 → 标记 → 控件 → 入口 -->
+    <script src="js/map/data.js"></script>
+    <script src="js/map/map.js"></script>
+    <script src="js/map/markers.js"></script>
+    <script src="js/map/controls.js"></script>
+    <script src="js/map/app.js"></script>
+</body>
+</html>
