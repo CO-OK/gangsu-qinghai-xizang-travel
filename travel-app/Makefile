@@ -16,15 +16,15 @@ run: start
 .PHONY: start
 start:
 	@if lsof -ti:$(PORT) > /dev/null 2>&1; then \
-		echo "⚠️  端口 $(PORT) 已被占用，服务器可能已在运行"; \
-		echo "   访问 $(URL) 查看"; \
-	else \
-		echo "🚀 启动服务器..."; \
-		cd server && node server.js & \
-		echo $$! > $(PID_FILE); \
-		sleep 2; \
-		open $(URL); \
+		echo "⚠️  端口 $(PORT) 已被占用，停止旧服务器..."; \
+		lsof -ti:$(PORT) | xargs kill 2>/dev/null; \
+		sleep 1; \
 	fi
+	@echo "🚀 启动服务器..."
+	cd server && node server.js &
+	echo $$! > $(PID_FILE)
+	sleep 2
+	open $(URL)
 
 # 停止服务器
 .PHONY: stop
@@ -41,6 +41,16 @@ stop:
 		kill $$(lsof -ti:$(PORT)) 2>/dev/null && echo "🛑 服务器已停止" || echo "⚠️  停止失败"; \
 	else \
 		echo "ℹ️  服务器未运行"; \
+	fi
+
+# 强制杀死服务器
+.PHONY: kill
+kill:
+	@if lsof -ti:$(PORT) > /dev/null 2>&1; then \
+		lsof -ti:$(PORT) | xargs kill -9 2>/dev/null && echo "💀 服务器已强制杀死"; \
+		rm -f $(PID_FILE); \
+	else \
+		echo "ℹ️  没有运行的服务器"; \
 	fi
 
 # 重启服务器
