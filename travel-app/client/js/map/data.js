@@ -64,14 +64,14 @@ const MapData = (() => {
      * 获取总天数
      */
     function getTotalDays() {
-        return data?.totalDays || 29;
+        return data?.totalDays || 30;
     }
 
     /**
      * 获取总里程
      */
     function getTotalDistance() {
-        return data?.totalDistance || '~13,000 km';
+        return data?.totalDistance || '~13,500 km';
     }
 
     /**
@@ -85,7 +85,12 @@ const MapData = (() => {
      * 获取日期范围
      */
     function getDateRange() {
-        return data?.startDate ? data.startDate.replace(/-/g, '年').replace(/03/, '3月') + '日-3月29日' : '3月1日-3月29日';
+        if (!data?.startDate) return '3月1日-3月30日';
+        const parts = data.startDate.split('-');
+        const month = parseInt(parts[1], 10);
+        const day = parseInt(parts[2], 10);
+        const endDay = day + data.totalDays - 1;
+        return `${month}月${day}日-${month}月${endDay}日`;
     }
 
     return {

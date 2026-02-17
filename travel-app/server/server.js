@@ -137,11 +137,14 @@ function updateTripData(transform, res, logMessage) {
   });
 }
 
+// 未匹配的 API 路由返回 404
+app.all("/api/*", (req, res) => {
+  res.status(404).json({ error: "API 端点不存在" });
+});
+
 // SPA 路由：所有非 API 请求返回 index.html
 app.get("*", (req, res) => {
-  if (!req.path.startsWith("/api/")) {
-    res.sendFile(path.join(__dirname, "../client/index.html"));
-  }
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 // 启动服务器

@@ -155,7 +155,7 @@ const MarkersModule = (() => {
             .bindPopup(`
                 <div class="popup-day" style="background: ${getPhaseColor(1)};">出发点</div>
                 <div class="popup-title">酒泉</div>
-                <div class="popup-info">29天青甘藏大环线起点<br>海拔: 1500m</div>
+                <div class="popup-info">30天青甘藏大环线起点<br>海拔: 1500m</div>
             `, { className: 'custom-popup' })
             .addTo(map);
 
