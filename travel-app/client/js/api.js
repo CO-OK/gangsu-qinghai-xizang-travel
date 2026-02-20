@@ -54,4 +54,58 @@ const API = {
     }
     return res.json();
   },
+
+  /** 修改行程 */
+  async updateDay(dayId, dayData) {
+    const res = await fetch(`${this.BASE_URL}/days/${dayId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dayData),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || "修改失败");
+    }
+    return res.json();
+  },
+
+  /** 获取指定天数的地图标点 */
+  async getLocation(dayId) {
+    const res = await fetch(`${this.BASE_URL}/trip-data`);
+    if (!res.ok) {
+      throw new Error("获取数据失败");
+    }
+    const data = await res.json();
+    if (data.locations) {
+      const loc = data.locations.find(l => (l.day === dayId || l.day.includes(dayId)) && !l.deleted);
+      return loc || null;
+    }
+    return null;
+  },
+
+  /** 新增行程 */
+  async addDay(insertAfter, dayData) {
+    const res = await fetch(`${this.BASE_URL}/days`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ insertAfter, day: dayData }),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || "新增失败");
+    }
+    return res.json();
+  },
+
+  /** 删除行程 */
+  async deleteDay(dayId) {
+    const res = await fetch(`${this.BASE_URL}/days/${dayId}`, {
+      method: "DELETE",
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || "删除失败");
+    }
+    return res.json();
+  },
 };

@@ -108,18 +108,70 @@ const MarkersModule = (() => {
         `;
     }
 
+    // ============== 辅助函数 ==============
+
+    /**
+     * 从 day 字符串提取天数编号
+     * 处理 "D1", "D1-D2" 等格式
+     */
+    function extractDayNumber(dayStr) {
+        if (!dayStr) return 999;
+        const match = dayStr.match(/D(\d+)/);
+        return match ? parseInt(match[1], 10) : 999;
+    }
+
+    /**
+     * 获取按阶段和天数排序的路线点
+     * 从 locations 动态生成，而非使用预定义的 routePoints
+     */
+    function getSortedLocationsByPhase(locations, phase) {
+        return locations
+            .filter(loc => loc.phase === phase && !loc.deleted && !loc.labelOnly)
+            .sort((a, b) => {
+                const dayA = extractDayNumber(a.day);
+                const dayB = extractDayNumber(b.day);
+                if (dayA !== dayB) return dayA - dayB;
+                // 同天按数组顺序
+                return 0;
+            })
+            .map(loc => [loc.lat, loc.lng]);
+    }
+
     // ============== 渲染方法 ==============
 
     /**
+     * 获取某阶段的所有地点（已排序）
+     * 排序规则：按天数 -> 按 order 字段 -> 按数组顺序
+     */
+    function getLocationsByPhase(locations, phase) {
+        return locations
+            .filter(loc => loc.phase === phase && !loc.deleted && !loc.labelOnly)
+            .sort((a, b) => {
+                const dayA = extractDayNumber(a.day);
+                const dayB = extractDayNumber(b.day);
+                if (dayA !== dayB) return dayA - dayB;
+                // 同天内按 order 排序（可选字段，数值越小越靠前）
+                const orderA = a.order ?? Infinity;
+                const orderB = b.order ?? Infinity;
+                if (orderA !== orderB) return orderA - orderB;
+                return 0;
+            });
+    }
+
+    /**
      * 绘制所有路线
+     * 从 locations 动态生成路线，包括阶段之间的连接线
      */
     function drawRoutes(map) {
-        const routePoints = MapData.getRoutePoints();
+        const locations = MapData.getLocations();
         const phases = MapData.getPhases();
         const maxPhase = phases.length;
 
+        // 先绘制各阶段的路线
         for (let phase = 1; phase <= maxPhase; phase++) {
-            const points = routePoints[phase] || routePoints[String(phase)] || [];
+            const locs = getLocationsByPhase(locations, phase);
+            const points = locs.map(loc => [loc.lat, loc.lng]);
+
             if (points.length < 2) continue;
 
             const color = getPhaseColor(phase);
@@ -134,6 +186,34 @@ const MarkersModule = (() => {
             }).addTo(map);
 
             routeLayers[phase] = polyline;
+        }
+
+        // 绘制阶段之间的连接线
+        const connectorColor = '#888888'; // 灰色连接线
+        for (let phase = 1; phase < maxPhase; phase++) {
+            const currentPhaseLocs = getLocationsByPhase(locations, phase);
+            const nextPhaseLocs = getLocationsByPhase(locations, phase + 1);
+
+            if (currentPhaseLocs.length === 0 || nextPhaseLocs.length === 0) continue;
+
+            // 获取当前阶段最后一个点和下一个阶段第一个点
+            const lastPoint = currentPhaseLocs[currentPhaseLocs.length - 1];
+            const firstPoint = nextPhaseLocs[0];
+
+            const connectorPoints = [
+                [lastPoint.lat, lastPoint.lng],
+                [firstPoint.lat, firstPoint.lng]
+            ];
+
+            const connector = L.polyline(connectorPoints, {
+                color: connectorColor,
+                weight: 3,
+                opacity: 0.7,
+                smoothFactor: 1.5,
+                dashArray: '5, 5', // 虚线表示连接
+            }).addTo(map);
+
+            routeLayers[`connector_${phase}`] = connector;
         }
     }
 
@@ -159,8 +239,8 @@ const MarkersModule = (() => {
             `, { className: 'custom-popup' })
             .addTo(map);
 
-        // 遍历所有地点
-        locations.forEach(loc => {
+        // 遍历所有地点（过滤已删除的）
+        locations.filter(loc => !loc.deleted).forEach(loc => {
             if (loc.labelOnly) return;
 
             const icon = resolveIcon(loc);
@@ -202,6 +282,23 @@ const MarkersModule = (() => {
     }
 
     /**
+     * 清除所有标记和路线
+     */
+    function clearAll(map) {
+        // 清除各阶段图层
+        Object.values(phaseLayers).forEach(layer => {
+            if (layer) map.removeLayer(layer);
+        });
+        // 清除路线图层
+        Object.values(routeLayers).forEach(layer => {
+            if (layer) map.removeLayer(layer);
+        });
+        // 重置图层对象
+        Object.keys(phaseLayers).forEach(key => delete phaseLayers[key]);
+        Object.keys(routeLayers).forEach(key => delete routeLayers[key]);
+    }
+
+    /**
      * 初始化所有标记和路线
      */
     function init(map) {
@@ -213,6 +310,7 @@ const MarkersModule = (() => {
     // 公开接口
     return {
         init,
+        clearAll,
         getPhaseLayers: () => phaseLayers,
         getRouteLayers: () => routeLayers,
     };

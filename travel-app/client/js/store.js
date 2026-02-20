@@ -100,6 +100,60 @@ class TripStore {
     }
   }
 
+  /** 修改行程（乐观更新） */
+  async updateDay(dayId, dayData) {
+    const day = this.getDay(dayId);
+    if (!day) throw new Error("未找到对应的天数");
+
+    // 保存旧值用于回滚
+    const oldDay = { ...day };
+
+    // 乐观更新
+    Object.keys(dayData).forEach((key) => {
+      if (key !== "id" && key !== "expenses" && key !== "location") {
+        day[key] = dayData[key];
+      }
+    });
+
+    try {
+      const result = await API.updateDay(dayId, dayData);
+      return result;
+    } catch (e) {
+      // 回滚
+      Object.assign(day, oldDay);
+      throw e;
+    }
+  }
+
+  /** 获取指定天数的地图标点 */
+  async getLocation(dayId) {
+    return API.getLocation(dayId);
+  }
+
+  /** 新增行程 */
+  async addDay(insertAfter, dayData) {
+    try {
+      const result = await API.addDay(insertAfter, dayData);
+      // 重新加载数据以获取更新后的完整数据
+      await this.load();
+      return result;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /** 删除行程 */
+  async deleteDay(dayId) {
+    try {
+      const result = await API.deleteDay(dayId);
+      // 重新加载数据以获取更新后的完整数据
+      await this.load();
+      return result;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   /** 计算总开销 */
   getTotalExpense() {
     if (!this.data) return 0;

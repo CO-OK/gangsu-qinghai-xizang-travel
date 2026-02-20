@@ -491,6 +491,332 @@ body {
   color: #bbb;
 }
 
+/* ---------- Day Edit Button ---------- */
+.btn-edit-day {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fef3c7;
+  color: #d97706;
+  font-weight: 500;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.btn-edit-day:hover {
+  background: #fde68a;
+  transform: translateY(-1px);
+}
+
+.day-card {
+  position: relative;
+}
+
+/* ---------- Day Edit Modal ---------- */
+.day-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.day-modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.day-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.2s;
+}
+
+.day-modal-overlay.show .day-modal {
+  transform: translateY(0);
+}
+
+.day-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.day-modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.day-modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.day-modal-close:hover {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.day-modal-body {
+  padding: 20px;
+}
+
+.day-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ---------- Location Section ---------- */
+.location-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+
+.location-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.location-section-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.btn-add-location {
+  padding: 6px 12px;
+  font-size: 12px;
+  border: 1px solid #dcfce7;
+  border-radius: 4px;
+  background: #dcfce7;
+  color: #16a34a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add-location:hover {
+  background: #bbf7d0;
+}
+
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.location-item {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.location-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.location-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-item-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-move-location {
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-move-location:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-remove-location {
+  padding: 4px 10px;
+  font-size: 11px;
+  border: 1px solid #fee2e2;
+  border-radius: 4px;
+  background: #fff;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-remove-location:hover {
+  background: #fee2e2;
+}
+
+.form-group-name {
+  flex: 1;
+}
+
+.form-group-order {
+  width: 70px;
+}
+
+.loc-order-input {
+  width: 60px;
+  text-align: center;
+}
+
+/* ---------- Phase Edit Controls ---------- */
+.phase-edit-controls {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  padding-right: 16px;
+}
+
+.btn-add-day,
+.btn-delete-day {
+  padding: 6px 14px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-add-day {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.btn-add-day:hover {
+  background: #bbf7d0;
+  transform: translateY(-1px);
+}
+
+.btn-delete-day {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btn-delete-day:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+}
+
+/* ---------- Phase Navigation Container ---------- */
+#phase-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
   .site-header { padding: 32px 16px 24px; }
@@ -725,5 +1051,354 @@ body {
   .expenses-table th.th-actions,
   .expenses-table td.expense-actions {
     display: none;
+  }
+}
+
+/* ---------- Day Edit Button ---------- */
+.btn-edit-day {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #fef3c7;
+  color: #d97706;
+  font-weight: 500;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.btn-edit-day:hover {
+  background: #fde68a;
+  transform: translateY(-1px);
+}
+
+.day-card {
+  position: relative;
+}
+
+/* ---------- Day Edit Modal ---------- */
+.day-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.day-modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.day-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.2s;
+}
+
+.day-modal-overlay.show .day-modal {
+  transform: translateY(0);
+}
+
+.day-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.day-modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.day-modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.day-modal-close:hover {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.day-modal-body {
+  padding: 20px;
+}
+
+.day-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a90d9;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ---------- Location Section ---------- */
+.location-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border);
+}
+
+.location-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.location-section-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.btn-add-location {
+  padding: 6px 12px;
+  font-size: 12px;
+  border: 1px solid #dcfce7;
+  border-radius: 4px;
+  background: #dcfce7;
+  color: #16a34a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add-location:hover {
+  background: #bbf7d0;
+}
+
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.location-item {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.location-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.location-item-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-item-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-move-location {
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-move-location:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-remove-location {
+  padding: 4px 10px;
+  font-size: 11px;
+  border: 1px solid #fee2e2;
+  border-radius: 4px;
+  background: #fff;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-remove-location:hover {
+  background: #fee2e2;
+}
+
+.form-group-name {
+  flex: 1;
+}
+
+.form-group-order {
+  width: 70px;
+}
+
+.loc-order-input {
+  width: 60px;
+  text-align: center;
+}
+
+/* ---------- Phase Edit Controls ---------- */
+.phase-edit-controls {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  padding-right: 16px;
+}
+
+.btn-add-day,
+.btn-delete-day {
+  padding: 6px 14px;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-add-day {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.btn-add-day:hover {
+  background: #bbf7d0;
+  transform: translateY(-1px);
+}
+
+.btn-delete-day {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btn-delete-day:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+}
+
+/* ---------- Phase Navigation Container ---------- */
+#phase-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (max-width: 640px) {
+  .phase-edit-controls {
+    width: 100%;
+    justify-content: center;
+    padding-right: 0;
+    margin-top: 8px;
+  }
+
+  #phase-nav {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .day-modal {
+    max-width: 95%;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
   }
 }
