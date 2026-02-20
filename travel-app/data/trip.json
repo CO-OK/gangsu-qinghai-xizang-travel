@@ -48,9 +48,15 @@
     }
   ],
   "mapConfig": {
-    "center": [32.5, 90],
+    "center": [
+      32.5,
+      90
+    ],
     "zoom": 6,
-    "fitBoundsPadding": [50, 50]
+    "fitBoundsPadding": [
+      50,
+      50
+    ]
   },
   "highlightKeywords": [
     "珠峰",
@@ -61,28 +67,6 @@
   ],
   "locations": [
     {
-      "name": "酒泉",
-      "lat": 39.7332,
-      "lng": 98.4941,
-      "day": "D1",
-      "phase": 1,
-      "alt": "1500m",
-      "desc": "出发点",
-      "major": true,
-      "stay": "D1晚入住"
-    },
-    {
-      "name": "张掖",
-      "lat": 38.926,
-      "lng": 100.45,
-      "day": "D1-D2",
-      "phase": 1,
-      "alt": "1500m",
-      "desc": "大佛寺 + 七彩丹霞",
-      "major": true,
-      "stay": "D1晚入住"
-    },
-    {
       "name": "扁都口",
       "lat": 38.35,
       "lng": 100.74,
@@ -90,18 +74,23 @@
       "phase": 1,
       "alt": "3500m",
       "desc": "祁连山重要隘口",
-      "major": false
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_zw8t1kdd8",
+      "stay": "祁连县城"
     },
     {
       "name": "祁连",
       "lat": 38.1748,
       "lng": 100.2467,
-      "day": "D2-D3",
+      "day": "D2",
       "phase": 1,
       "alt": "2800m",
       "desc": "卓尔山 + 祁连山草原",
       "major": true,
-      "stay": "D2晚入住"
+      "stay": "祁连县城",
+      "order": 3,
+      "id": "loc_1771430246954_6uthjxp8b"
     },
     {
       "name": "门源",
@@ -111,28 +100,34 @@
       "phase": 1,
       "alt": "2800m",
       "desc": "岗什卡雪峰 + 达坂山",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_o63pj6eie"
     },
     {
       "name": "西宁",
       "lat": 36.6171,
       "lng": 101.7782,
-      "day": "D3-D5",
+      "day": "D3",
       "phase": 1,
       "alt": "2200m",
       "desc": "塔尔寺 + 进藏物资采购",
       "major": true,
-      "stay": "D3-D4晚入住"
+      "stay": "D3-D4晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_e3u9boe6w"
     },
     {
       "name": "青海湖(二郎剑)",
       "lat": 36.6,
       "lng": 100.6,
-      "day": "D4,D6",
+      "day": "D4",
       "phase": 1,
       "alt": "3200m",
       "desc": "中国最大湖泊",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_3aff2v0b0"
     },
     {
       "name": "日月山",
@@ -142,29 +137,33 @@
       "phase": 1,
       "alt": "3520m",
       "desc": "文成公主入藏之地",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_0jvnjnyuz"
     },
     {
       "name": "茶卡盐湖",
       "lat": 36.71,
       "lng": 99.08,
-      "day": "D5-D6",
+      "day": "D5",
       "phase": 1,
       "alt": "3100m",
       "desc": "天空之镜",
       "major": true,
-      "stay": "D5-D6晚入住茶卡镇"
+      "stay": "D5-D6晚入住茶卡镇",
+      "id": "loc_1771430246954_5szeiwsd8"
     },
     {
       "name": "玛多",
       "lat": 34.92,
       "lng": 98.21,
-      "day": "D7-D8",
+      "day": "D7",
       "phase": 1,
       "alt": "4300m",
       "desc": "黄河源头第一县·G214起点",
       "major": true,
-      "stay": "D7晚入住"
+      "stay": "D7晚入住",
+      "id": "loc_1771430246954_wme3799q2"
     },
     {
       "name": "巴颜喀拉山口",
@@ -174,39 +173,47 @@
       "phase": 2,
       "alt": "4824m",
       "desc": "G214最高点·经幡飘扬",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_s2jurbmg6"
     },
     {
       "name": "玉树",
-      "lat": 33.00,
+      "lat": 33,
       "lng": 97.01,
       "day": "D8",
       "phase": 2,
       "alt": "4200m",
       "desc": "结古寺·文成公主庙·新寨玛尼堆",
       "major": true,
-      "stay": "D8晚入住"
+      "stay": "D8晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_dfysxemvo"
     },
     {
       "name": "囊谦",
-      "lat": 32.20,
+      "lat": 32.2,
       "lng": 96.48,
       "day": "D9",
       "phase": 2,
       "alt": "3600m",
       "desc": "千年古盐田",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_xz7t3d0d0"
     },
     {
       "name": "类乌齐",
       "lat": 31.21,
-      "lng": 96.60,
+      "lng": 96.6,
       "day": "D9",
       "phase": 2,
       "alt": "3800m",
       "desc": "查杰玛大殿·高山峡谷",
       "major": true,
-      "stay": "D9晚入住"
+      "stay": "D9晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_vhp6ulr63"
     },
     {
       "name": "昌都",
@@ -216,18 +223,22 @@
       "phase": 2,
       "alt": "3250m",
       "desc": "强巴林寺·康巴文化中心",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_9peq0wbd7"
     },
     {
       "name": "芒康",
       "lat": 29.68,
-      "lng": 98.60,
+      "lng": 98.6,
       "day": "D10",
       "phase": 2,
       "alt": "3900m",
       "desc": "G214与G318交汇处",
       "major": true,
-      "stay": "D10晚入住"
+      "stay": "D10晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_zb9jx5ure"
     },
     {
       "name": "东达山口",
@@ -237,7 +248,9 @@
       "phase": 2,
       "alt": "5008m",
       "desc": "全程最高公路垭口",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_hhrgozpvw"
     },
     {
       "name": "八宿",
@@ -248,7 +261,9 @@
       "alt": "3200m",
       "desc": "72道拐·怒江畔",
       "major": true,
-      "stay": "D11晚入住"
+      "stay": "D11晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_hxamn1oe1"
     },
     {
       "name": "然乌湖",
@@ -258,7 +273,9 @@
       "phase": 2,
       "alt": "3850m",
       "desc": "帕隆藏布江源头·碧蓝三段湖",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_zt3b3m5hl"
     },
     {
       "name": "米堆冰川",
@@ -268,18 +285,21 @@
       "phase": 2,
       "alt": "2800m",
       "desc": "中国最美冰川之一",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_29jo41waw"
     },
     {
       "name": "波密",
       "lat": 29.86,
       "lng": 95.77,
-      "day": "D12-D13",
+      "day": "D12",
       "phase": 2,
       "alt": "2700m",
       "desc": "西藏小瑞士",
       "major": true,
-      "stay": "D12晚入住"
+      "stay": "D12晚入住",
+      "id": "loc_1771430246954_rwjgeaqdq"
     },
     {
       "name": "鲁朗",
@@ -289,7 +309,9 @@
       "phase": 3,
       "alt": "3700m",
       "desc": "东方瑞士 + 石锅鸡",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_woj9mfxgz"
     },
     {
       "name": "色季拉山口",
@@ -299,18 +321,22 @@
       "phase": 3,
       "alt": "4728m",
       "desc": "远眺南迦巴瓦峰",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_oopr5tls8"
     },
     {
       "name": "林芝(八一镇)",
       "lat": 29.65,
       "lng": 94.36,
-      "day": "D13-D14",
+      "day": "D13",
       "phase": 3,
       "alt": "2900m",
       "desc": "色季拉山口·鲁朗林海",
       "major": true,
-      "stay": "D13晚入住"
+      "stay": "D13晚入住",
+      "order": 3,
+      "id": "loc_1771430246954_qwml2bjd1"
     },
     {
       "name": "巴松措",
@@ -320,18 +346,20 @@
       "phase": 3,
       "alt": "3480m",
       "desc": "翡翠圣湖 + 扎西岛",
-      "major": true
+      "major": true,
+      "id": "loc_1771430246954_y6cn7to3e"
     },
     {
       "name": "拉萨",
       "lat": 29.65,
       "lng": 91.1,
-      "day": "D14-D17",
+      "day": "D14",
       "phase": 4,
       "alt": "3650m",
       "desc": "布达拉宫·大昭寺·色拉寺·哲蚌寺·罗布林卡",
       "major": true,
-      "stay": "D14-D17晚入住"
+      "stay": "D14-D17晚入住",
+      "id": "loc_1771430246954_n09ihg6x9"
     },
     {
       "name": "羊卓雍措",
@@ -341,7 +369,9 @@
       "phase": 5,
       "alt": "4400m",
       "desc": "西藏三大圣湖之一",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_bhmt0qvll"
     },
     {
       "name": "卡若拉冰川",
@@ -351,7 +381,9 @@
       "phase": 5,
       "alt": "4990m",
       "desc": "距公路仅300m的冰川",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_veuy8tsno"
     },
     {
       "name": "江孜",
@@ -361,18 +393,22 @@
       "phase": 5,
       "alt": "4000m",
       "desc": "白居寺 + 宗山古堡",
-      "major": false
+      "major": false,
+      "order": 3,
+      "id": "loc_1771430246954_jb29ss2x1"
     },
     {
       "name": "日喀则",
       "lat": 29.27,
       "lng": 88.89,
-      "day": "D18-D19",
+      "day": "D18",
       "phase": 5,
       "alt": "3800m",
       "desc": "扎什伦布寺",
       "major": true,
-      "stay": "D18晚入住"
+      "stay": "D18晚入住",
+      "order": 4,
+      "id": "loc_1771430246954_beqbkzfux"
     },
     {
       "name": "嘉措拉山口",
@@ -382,18 +418,22 @@
       "phase": 5,
       "alt": "5248m",
       "desc": "远眺喜马拉雅群峰",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_y1uhvzngs"
     },
     {
       "name": "珠峰/绒布寺",
       "lat": 28.15,
       "lng": 86.85,
-      "day": "D19-D20",
+      "day": "D19",
       "phase": 5,
       "alt": "5100-5200m",
       "desc": "世界之巅 + 日出日落星空",
       "major": true,
-      "stay": "D19晚入住（帐篷旅馆）"
+      "stay": "D19晚入住（帐篷旅馆）",
+      "order": 2,
+      "id": "loc_1771430246954_15f02njsz"
     },
     {
       "name": "佩枯措",
@@ -403,18 +443,22 @@
       "phase": 5,
       "alt": "4500m",
       "desc": "日喀则最大湖泊",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_m0qz9itk5"
     },
     {
       "name": "萨嘎",
       "lat": 29.33,
       "lng": 85.23,
-      "day": "D20-D21",
+      "day": "D20",
       "phase": 5,
       "alt": "4500m",
       "desc": "阿里南线重要补给点",
       "major": true,
-      "stay": "D20晚入住"
+      "stay": "D20晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_j4104hyqw"
     },
     {
       "name": "仲巴",
@@ -424,7 +468,9 @@
       "phase": 5,
       "alt": "4700m",
       "desc": "五彩沙漠",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_kdxh457z8"
     },
     {
       "name": "马攸木拉山口",
@@ -434,18 +480,22 @@
       "phase": 5,
       "alt": "5216m",
       "desc": "进入阿里核心区",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_mb97ulbu1"
     },
     {
       "name": "塔钦",
       "lat": 31.07,
       "lng": 81.31,
-      "day": "D21-D22",
+      "day": "D21",
       "phase": 5,
       "alt": "4600m",
       "desc": "冈仁波齐观景起点",
       "major": true,
-      "stay": "D21晚入住"
+      "stay": "D21晚入住",
+      "order": 3,
+      "id": "loc_1771430246954_oddh7ksrz"
     },
     {
       "name": "冈仁波齐",
@@ -456,7 +506,8 @@
       "alt": "6656m",
       "desc": "四大宗教共尊神山",
       "major": false,
-      "labelOnly": true
+      "labelOnly": true,
+      "id": "loc_1771430246954_4w2hdmeds"
     },
     {
       "name": "玛旁雍措",
@@ -466,7 +517,9 @@
       "phase": 5,
       "alt": "4588m",
       "desc": "世界江河之母",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_6gm0ji6z8"
     },
     {
       "name": "拉昂错(鬼湖)",
@@ -476,18 +529,22 @@
       "phase": 5,
       "alt": "4574m",
       "desc": "神秘鬼湖",
-      "major": false
+      "major": false,
+      "order": 2,
+      "id": "loc_1771430246954_eaaq8wk4c"
     },
     {
       "name": "札达",
       "lat": 31.48,
       "lng": 79.8,
-      "day": "D22-D23",
+      "day": "D22",
       "phase": 5,
       "alt": "3800m",
       "desc": "土林 + 古格王朝遗址",
       "major": true,
-      "stay": "D22-D23晚入住"
+      "stay": "D22-D23晚入住",
+      "order": 3,
+      "id": "loc_1771430246954_mvfeesw9y"
     },
     {
       "name": "噶尔(狮泉河)",
@@ -497,7 +554,9 @@
       "phase": 6,
       "alt": "4200m",
       "desc": "阿里地区首府·补给",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_k9iitiyx3"
     },
     {
       "name": "盐湖乡",
@@ -508,7 +567,9 @@
       "alt": "4400m",
       "desc": "转入北线",
       "major": false,
-      "stay": "D24晚入住"
+      "stay": "D24晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_f2pdcuk00"
     },
     {
       "name": "措勤",
@@ -519,7 +580,8 @@
       "alt": "4500m",
       "desc": "扎日南木错",
       "major": true,
-      "stay": "D25晚入住"
+      "stay": "D25晚入住",
+      "id": "loc_1771430246954_27nwmz9ds"
     },
     {
       "name": "当穷错",
@@ -529,7 +591,9 @@
       "phase": 6,
       "alt": "4500m",
       "desc": "藏北高原湖泊",
-      "major": false
+      "major": false,
+      "order": 1,
+      "id": "loc_1771430246954_cj4ua8axb"
     },
     {
       "name": "当惹雍措(文部南村)",
@@ -539,18 +603,22 @@
       "phase": 6,
       "alt": "4500m",
       "desc": "苯教圣湖·西藏最美湖泊",
-      "major": true
+      "major": true,
+      "order": 2,
+      "id": "loc_1771430246954_yoihwvmo9"
     },
     {
       "name": "尼玛",
       "lat": 31.78,
       "lng": 87.24,
-      "day": "D26-D27",
+      "day": "D26",
       "phase": 6,
       "alt": "4500m",
       "desc": "藏北补给点",
       "major": false,
-      "stay": "D26晚入住"
+      "stay": "D26晚入住",
+      "order": 3,
+      "id": "loc_1771430246954_velipqniq"
     },
     {
       "name": "色林错",
@@ -560,18 +628,22 @@
       "phase": 6,
       "alt": "4530m",
       "desc": "西藏第一大湖",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_2l91cr6dg"
     },
     {
       "name": "纳木错(扎西半岛)",
       "lat": 30.7,
       "lng": 90.5,
-      "day": "D27-D28",
+      "day": "D27",
       "phase": 6,
       "alt": "4718m",
       "desc": "西藏三大圣湖·日出日落",
       "major": true,
-      "stay": "D27晚入住"
+      "stay": "D27晚入住",
+      "order": 2,
+      "id": "loc_1771430246954_p2dkj1ww7"
     },
     {
       "name": "安多(返程)",
@@ -582,7 +654,8 @@
       "alt": "4800m",
       "desc": "返程中转",
       "major": true,
-      "stay": "D28晚入住"
+      "stay": "D28晚入住",
+      "id": "loc_1771430246954_0jtxbdc01"
     },
     {
       "name": "格尔木(返程)",
@@ -593,7 +666,8 @@
       "alt": "2800m",
       "desc": "返程中转",
       "major": false,
-      "stay": "D29晚入住"
+      "stay": "D29晚入住",
+      "id": "loc_1771430246954_v39iqubm9"
     },
     {
       "name": "敦煌",
@@ -603,7 +677,9 @@
       "phase": 7,
       "alt": "1100m",
       "desc": "鸣沙山·月牙泉",
-      "major": true
+      "major": true,
+      "order": 1,
+      "id": "loc_1771430246954_s581viup4"
     },
     {
       "name": "莫高窟",
@@ -613,7 +689,9 @@
       "phase": 7,
       "alt": "1100m",
       "desc": "中国四大石窟之首",
-      "major": true
+      "major": true,
+      "order": 2,
+      "id": "loc_1771430246954_vyvqvag7i"
     },
     {
       "name": "嘉峪关",
@@ -623,7 +701,9 @@
       "phase": 7,
       "alt": "1700m",
       "desc": "天下第一雄关",
-      "major": true
+      "major": true,
+      "order": 3,
+      "id": "loc_1771430246954_c732is47q"
     },
     {
       "name": "酒泉(终点)",
@@ -633,91 +713,39 @@
       "phase": 7,
       "alt": "1500m",
       "desc": "回家！",
-      "major": true
+      "major": true,
+      "order": 4,
+      "id": "loc_1771430246954_lydlclrko"
+    },
+    {
+      "name": "酒泉",
+      "lat": 39.7332,
+      "lng": 98.4941,
+      "day": "D1",
+      "phase": 1,
+      "alt": "1500m",
+      "desc": "出发点",
+      "major": true,
+      "stay": "张掖市区",
+      "id": "loc_1771431125425_s2qn25yth",
+      "order": null,
+      "deleted": false
+    },
+    {
+      "name": "张掖",
+      "lat": 38.926,
+      "lng": 100.45,
+      "day": "D1",
+      "phase": 1,
+      "alt": "1500m",
+      "desc": "大佛寺 + 七彩丹霞",
+      "major": true,
+      "stay": "张掖市区",
+      "id": "loc_1771431125425_o8p9rbv4w",
+      "order": null,
+      "deleted": false
     }
   ],
-  "routePoints": {
-    "1": [
-      [39.7332, 98.4941],
-      [38.926, 100.45],
-      [38.35, 100.74],
-      [38.1748, 100.2467],
-      [37.3744, 101.6218],
-      [36.6171, 101.7782],
-      [36.5, 100.98],
-      [36.6, 100.6],
-      [36.6171, 101.7782],
-      [36.71, 99.08],
-      [34.92, 98.21]
-    ],
-    "2": [
-      [34.92, 98.21],
-      [34.57, 97.75],
-      [33.00, 97.01],
-      [32.20, 96.48],
-      [31.21, 96.60],
-      [31.14, 97.17],
-      [29.68, 98.60],
-      [29.83, 97.42],
-      [30.05, 96.92],
-      [29.45, 96.84],
-      [29.47, 96.51],
-      [29.86, 95.77]
-    ],
-    "3": [
-      [29.86, 95.77],
-      [29.77, 94.75],
-      [29.75, 94.73],
-      [29.65, 94.36],
-      [30.01, 93.96],
-      [29.65, 91.1]
-    ],
-    "4": [],
-    "5": [
-      [29.65, 91.1],
-      [28.98, 90.68],
-      [28.87, 90.23],
-      [28.91, 89.61],
-      [29.27, 88.89],
-      [28.8, 87.5],
-      [28.15, 86.85],
-      [28.58, 85.61],
-      [29.33, 85.23],
-      [29.77, 84.03],
-      [30.45, 82.1],
-      [31.07, 81.31],
-      [30.67, 81.46],
-      [30.65, 81.19],
-      [31.48, 79.8]
-    ],
-    "6": [
-      [31.48, 79.8],
-      [32.5, 80.1],
-      [32.2, 81.5],
-      [31.02, 85.16],
-      [31.6, 86.3],
-      [31.01, 86.67],
-      [31.78, 87.24],
-      [31.8, 88.8],
-      [30.7, 90.5]
-    ],
-    "7": [
-      [30.7, 90.5],
-      [30.47, 91.10],
-      [31.48, 92.05],
-      [32.26, 91.68],
-      [32.89, 91.63],
-      [34.22, 92.44],
-      [35.3, 93.5],
-      [35.63, 94.07],
-      [36.4017, 94.9038],
-      [37.85, 95.35],
-      [40.1421, 94.662],
-      [40.04, 94.8],
-      [39.7731, 98.2894],
-      [39.7332, 98.4941]
-    ]
-  },
   "days": [
     {
       "id": "D1",

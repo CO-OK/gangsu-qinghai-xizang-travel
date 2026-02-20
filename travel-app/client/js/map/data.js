@@ -26,13 +26,6 @@ const MapData = (() => {
     }
 
     /**
-     * 获取路线点
-     */
-    function getRoutePoints() {
-        return data?.routePoints || {};
-    }
-
-    /**
      * 获取阶段列表
      */
     function getPhases() {
