@@ -86,6 +86,26 @@ const MapData = (() => {
         return `${month}月${day}日-${month}月${endDay}日`;
     }
 
+    /**
+     * 获取路线点（按阶段分组）
+     * 从 locations 动态生成
+     */
+    function getRoutePoints() {
+        if (!data?.locations) return {};
+        const routePoints = {};
+        const locations = data.locations.filter(loc => !loc.deleted && !loc.labelOnly);
+
+        // 按阶段分组
+        locations.forEach(loc => {
+            if (!routePoints[loc.phase]) {
+                routePoints[loc.phase] = [];
+            }
+            routePoints[loc.phase].push([loc.lat, loc.lng]);
+        });
+
+        return routePoints;
+    }
+
     return {
         load,
         getLocations,

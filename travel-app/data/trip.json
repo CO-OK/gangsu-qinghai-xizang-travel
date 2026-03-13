@@ -728,7 +728,7 @@
       "major": true,
       "stay": "张掖市区",
       "id": "loc_1771431125425_s2qn25yth",
-      "order": null,
+      "order": 1,
       "deleted": false
     },
     {
@@ -742,7 +742,7 @@
       "major": true,
       "stay": "张掖市区",
       "id": "loc_1771431125425_o8p9rbv4w",
-      "order": null,
+      "order": 2,
       "deleted": false
     }
   ],
